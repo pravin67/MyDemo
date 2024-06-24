@@ -1,0 +1,26 @@
+<div *ngIf="mode == 'Add' || mode == 'Edit'">
+    <app-add-update-student [mode]="mode" [studentObj]="studentObj" (onCancel)="onCancelHandler($event)" (onSave)="onSaveHandler($event)"></app-add-update-student>
+</div>
+
+<div *ngIf="mode == 'View'">
+    <div class="row">
+        <div class="col-md-2 text-center">
+            <h4>Student List</h4>
+        </div>
+        <div class="col-md-8">
+            <input type="text" placeholder="Search here..." [(ngModel)]="searchTerm" (input)="search()"/>
+        </div>
+        <div class="col-md-2 text-center">
+            <button type="button" class="btn btn-primary" (click)="addStudent()">
+                <span>Student Add</span>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="studentList && studentList.length === 0" class="text-center"><b>No students to display</b></div>
+    <div *ngIf="studentList && studentList.length > 0"class="row card-group" style="justify-content: flex-start;">
+        <div *ngFor="let student of studentList" class="col-md-4">
+            <app-student [student]="student" (onEdit)="onEditHandler($event)"
+                (onDelete)="onDeleteHandler($event)"></app-student>
+        </div>
+    </div>
+</div>

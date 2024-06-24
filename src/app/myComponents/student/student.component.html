@@ -1,0 +1,24 @@
+<div *ngIf="student" class="card px-1 py-1" style="margin:5px;">
+    <div class="row">
+        <div class="col-md-4">
+            <img *ngIf="student.gender == 'Male'" src="assets/img/MaleImg.png" class="card-img" alt="Male Image">
+            <img *ngIf="student.gender == 'Female'" src="assets/img/FemaleImg.jpg" class="card-img" alt="Female Image">
+        </div>
+        <div class="col-md-8">
+            <h5 class="card-header">{{student.salutation}} {{student.F_Name}} {{student.M_Name}} {{student.L_Name}}</h5>
+            <div class="card-body">
+                <h6 class="card-title">{{student.class}}</h6>
+                <p class="card-text">{{student.address}}</p>
+                <hr style="margin: revert">
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-sm btn-outline-primary" (click)="onEditClick(student)">
+                        <span>Edit</span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" (click)="onDeleteClick(student)">
+                        <span>Delete </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

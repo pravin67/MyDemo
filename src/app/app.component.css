@@ -1,0 +1,11 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.scrollable-div {
+    height: 500px;
+    overflow-y: auto; /* Adds vertical scrollbar if content overflows */
+    overflow-x: hidden;
+}
